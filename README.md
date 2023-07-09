@@ -23,7 +23,7 @@ https://github.com/FlysoftBeta/QQNTim#安装插件
 
 - HttpApi
 - HttpPostMessage
-- WebSocketConnect
+- WebSocketClient
 - WebSocketServer
 
 
