@@ -1,0 +1,6 @@
+{
+    "id": "Http",
+    "name": "Ws+Http的通信实现",
+    "author": "Rei1mu",
+    "injections": [{ "type": "renderer", "script": "renderer.js", "page": "main" }]
+}

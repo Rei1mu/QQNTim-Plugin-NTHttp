@@ -1,0 +1,16 @@
+[
+    {
+        "acc": 123456,
+        "ws": true,
+        "rwsUrl": "ws://127.0.0.1:4545",
+        "http": true,
+        "httpApiPort": 4544,
+        "httpUrl": "127.0.0.1:4544",
+        "wss": true,
+        "wsServerPort": 4543,
+        "sendHttpMsg": true,
+        "sendHttpTar": "http://114.514.19.19:810/recv",
+        "sendWssMsg": true,
+        "sendHistoryMsg": true
+    }
+]
