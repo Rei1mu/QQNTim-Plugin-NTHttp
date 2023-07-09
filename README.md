@@ -39,11 +39,14 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 
 <details>
 <summary>WebApi</summary>
+
 | 功能                     | API                    | Ws_Json.op  |
 | ------------------------ | ----------------------| ----------------------|
 | 发送消息                 | /smsg                  | smsg |
 | 上传图片                 | /uploadPic             | uploadPic |
 | /send_group_msg         | /revokeMessageById     | revokeMessageById |
+
+
 </details>
 
 
