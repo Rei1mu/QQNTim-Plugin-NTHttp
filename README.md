@@ -30,26 +30,45 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 ## 消息支持
 插件只是实现了一些对群/私聊消息`messages`的处理
 
-通过简码形式,简化 `Message` 结构为单行的 `msg`
+通过简码形式, 简化 `原生Message` 结构变为单行的 `msg` 进行消息推送
 
-同时请求发送消息的接口也支持 `msg` 和 `elements[]结构` 共用, 具体请查看用例和文档
+同时发送消息的请求接口也支持 `msg` 和 `原生消息结构` 共用, 具体请查看用例和文档
 
-我来说足够了，欢迎补充和完善
+目前的不足之处 
+1.sender里没有uin, 只有uid, 目前转换困难
+
+2.视频/图片/语音 只能靠本地api转存
+
+3.合并转发不支持
+
+不过对我来说能收发消息就足够了，其他的欢迎补充和完善不足。
 
 
 <details>
 <summary>WebApi</summary>
-
+#### WebApi
 
 | 功能                     | API                    | 指令(Ws_Json.op)  |
 | ------------------------ | ----------------------| ----------------------|
-| 发送消息                 | /smsg                  | smsg |
-| 上传图片                 | /uploadPic             | uploadPic |
-| 撤回消息         | /revokeMessageById     | revokeMessageById |
+| [发送消息]                 | /smsg                  | smsg |
+| [上传图片]                 | /uploadPic             | uploadPic |
+| [撤回消息]         | /revokeMessageById     | revokeMessageById |
 
 
 </details>
 
+<details>
+<summary>NT简码</summary>
+#### NT简码
+
+| 功能                     | API                    | 指令(Ws_Json.op)  |
+| ------------------------ | ----------------------| ----------------------|
+| [发送消息]                 | /smsg                  | smsg |
+| [上传图片]                 | /uploadPic             | uploadPic |
+| [撤回消息]         | /revokeMessageById     | revokeMessageById |
+
+
+</details>
 
 ## Web支持
 
