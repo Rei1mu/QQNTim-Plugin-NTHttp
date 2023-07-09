@@ -9,7 +9,7 @@
         "wss": true,
         "wsServerPort": 4543,
         "sendHttpMsg": true,
-        "sendHttpTar": "http://114.514.19.19:810/recv",
+        "sendHttpTar": "http://114.514.19.19:810/recv_customizable",
         "sendWssMsg": true,
         "sendHistoryMsg": true
     }
