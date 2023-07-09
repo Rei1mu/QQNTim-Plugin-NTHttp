@@ -1,4 +1,4 @@
-# QQNTim-Plugin-Http
+# QQNTim-Plugin-NTHttp
 基于QQNTim的插件，WebSocket+HttpApi的通信实现
 
 [![License](https://img.shields.io/github/license/Rei1mu/QQNTim-Plugin-Http.svg)](https://raw.githubusercontent.com/Rei1mu/QQNTim-Plugin-Http/master/LICENSE)
