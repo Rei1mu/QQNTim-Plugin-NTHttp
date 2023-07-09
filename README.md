@@ -28,23 +28,24 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 
 
 ## 消息支持
-插件只是实现了一些对群/私聊消息`messages`的处理,
+插件只是实现了一些对群/私聊消息`messages`的处理
+
 通过简码形式,简化 `Message` 结构为单行的 `msg`
+
 同时请求发送消息的接口也支持 `msg` 和 `elements[]结构` 共用, 具体请查看用例和文档
+
 我来说足够了，欢迎补充和完善
-支持：
 
-
-推送消息: 将Messages融汇成一句,附带简码的msg进行处理
 
 <details>
 <summary>WebApi</summary>
 
-| 功能                     | API                    | Ws_Json.op  |
+
+| 功能                     | API                    | 指令(Ws_Json.op)  |
 | ------------------------ | ----------------------| ----------------------|
 | 发送消息                 | /smsg                  | smsg |
 | 上传图片                 | /uploadPic             | uploadPic |
-| /send_group_msg         | /revokeMessageById     | revokeMessageById |
+| 撤回消息         | /revokeMessageById     | revokeMessageById |
 
 
 </details>
