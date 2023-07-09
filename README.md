@@ -9,9 +9,8 @@
 https://github.com/FlysoftBeta/QQNTim#安装插件
 
 下载Releases,执行脚本安装QQNTim
-#### 下面是Windows简易教程， Linux可参照原教程文档
-
-然后下载本插件解压至 `用户文件夹\.qqntim\plugins\NTHttp`  
+### 下面是Windows简易教程， Linux可参照原教程文档
+下载本插件解压至 `用户文件夹\.qqntim\plugins\NTHttp`  
 (plugins中可创建子目录 `NThttp` 也不限定名称)
 
 并在本插件目录下执行:
@@ -20,7 +19,9 @@ https://github.com/FlysoftBeta/QQNTim#安装插件
 ```
 
 P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
-若多账号同时登录请在 `setting.json` 中指定 `acc` 账号字段，并增加对应 `acc` 的相应配置
+
+若多账号同时登录请在 `.\setting.json` 中指定 `acc` 账号字段，并增加对应 `acc` 的Web配置
+
 重载本插件：按F5刷新即可
 
 
