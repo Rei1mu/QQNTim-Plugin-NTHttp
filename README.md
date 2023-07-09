@@ -7,12 +7,15 @@
 ## 安装
 请先安装QQNTim,教程见：
 https://github.com/FlysoftBeta/QQNTim#安装插件
+下载Releases安装QQNTim
 
-下载本插件,并在本插件目录下执行
+C:\Users\Marisa3\.qqntim\plugins\NTHttp
+然后下载解压本插件至 用户\YourUserName\.qqntim\plugins\ 并在本插件目录下执行
 ```bash
 > npm i
 ```
-重载按F5刷新即可
+
+重载本插件：按F5刷新即可
 
 ## 消息支持
 功能仅为解析\收发消息
