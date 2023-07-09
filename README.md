@@ -41,30 +41,33 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 
 3.合并转发不支持
 
-不过对我来说能收发消息就足够了，其他的欢迎补充和完善不足。
+不过对我的bot来说, 能收发消息就足够了, 其他的欢迎补充和完善不足。
 
 
 <details>
 <summary>WebApi</summary>
-#### WebApi
+WebApi
 
-| 功能                     | API                    | 指令(Ws_Json.op)  |
-| ------------------------ | ----------------------| ----------------------|
+| 功能                      | API                    | 指令(Ws_Json.op)  |
+| ------------------------  | ----------------------| ----------------------|
 | [发送消息]                 | /smsg                  | smsg |
 | [上传图片]                 | /uploadPic             | uploadPic |
-| [撤回消息]         | /revokeMessageById     | revokeMessageById |
+| [获取图片]                 | /gpic                  | gpic |
+| [撤回消息]                 | /revokeMessageById     | revokeMessageById |
 
 
 </details>
 
 <details>
 <summary>NT简码</summary>
-#### NT简码
+#### 暂命名为 NT码
 
-| 功能                     | API                    | 指令(Ws_Json.op)  |
-| ------------------------ | ----------------------| ----------------------|
-| [发送消息]                 | /smsg                  | smsg |
-| [上传图片]                 | /uploadPic             | uploadPic |
+| 功能                     | NT码                    | 解释 |
+| ------------------------ | ---------------------- | ----------------------|
+| [@某人]                  | [@uid]                   | 当前仅能根据uid @某人, 而非uin|
+| [pic=path]                 |[pic=C:\1.png]           | 本地图片 |
+| [pic=url]                 |[pic=http://114.514.19.19/1.png]  | 网络图片 |
+| [audio=path]                |[audio=C:\1.amr]  | 音频文件 |
 | [撤回消息]         | /revokeMessageById     | revokeMessageById |
 
 
