@@ -46,7 +46,8 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 
 <details>
 <summary>WebApi</summary>
-WebApi
+
+#### WebApi
 
 | 功能                      | API                    | 指令(Ws_Json.op)  |
 | ------------------------  | ---------------------- | ----------------------|
