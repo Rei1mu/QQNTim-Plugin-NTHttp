@@ -5,6 +5,7 @@
 #### \smsg
 支持 Post/GET 调用
 例：
+##### POST JSON
 ```
 {
     "t": "group",
