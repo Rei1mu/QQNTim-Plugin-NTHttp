@@ -23,7 +23,6 @@ plugins中可创建子目录 `NThttp` (不限制命名)
 ```
 
 P.S: Windows用户文件夹一般位于 `C:\Users\你的用户名\.qqntim`
-Linux用户去参考原文档
 
 重载插件：按F5刷新即可
 
