@@ -1,4 +1,8 @@
+#使用帮助-Api篇
+
+
 ## 发送消息
+写文档比较费时间，先发些直接见效的，后面再慢慢完善
 
 ### HttpApi
 
@@ -8,20 +12,22 @@
 ##### POST JSON
 ```
 {
+    "op": "smsg",
     "t": "group",
     "uid": "625224327",
-    "msg":"asdff\r\n阿斯蒂芬\r\n士大夫\r\n[pic=http:\/\/127.0.0.1:4544\/gpic?path=C:\\soft\\qpic\\3020646829\\nt_qq\\nt_data\\Pic\\2023-06\\Ori\\8edf519ea8d2b47ca2fd72ef74fb482b.png]",
+    "msg": "[reply,msgSeq=2431,senderUid=3020646829,replyMsgTime=1688387198][@u_noGwjHveY-OvOXyWsqYAXw] [face,id=277,faceType=normal-extended][face,id=63,faceType=normal]asdff\r\n阿斯蒂芬\r\n士大夫\r\n[pic=http:\/\/127.0.0.1:4544\/gpic?path=C:\\soft\\qpic\\3020646829\\nt_qq\\nt_data\\Pic\\2023-06\\Ori\\8edf519ea8d2b47ca2fd72ef74fb482b.png][pic=http:\/\/127.0.0.1:4544\/gpic?path=C:\\soft\\qpic\\3020646829\\nt_qq\\nt_data\\Pic\\2023-06\\Ori\\8edf519ea8d2b47ca2fd72ef74fb482b.png]",
     "data": [
-         {
-                "type": "raw",
-                "raw": {
-                    "elementType": 1,
-                    "textElement": {
-                        "atType": 2,
-                        "atNtUid": "u_noGwjHveY-OvOXyWsqYAXw"
-                    }
+        {
+            "type": "raw",
+            "raw": {
+                "elementType": 1,
+                "textElement": {
+                    "atType": 2,
+                    "atNtUid": "u_noGwjHveY-OvOXyWsqYAXw"
                 }
-            },{
+            }
+        },
+        {
             "type": "text",
             "content": " asdff"
         },
