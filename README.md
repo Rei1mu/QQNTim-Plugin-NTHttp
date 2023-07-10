@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/github/license/Rei1mu/QQNTim-Plugin-NTHttp.svg)](https://raw.githubusercontent.com/Rei1mu/QQNTim-Plugin-NTHttp/master/LICENSE)
 
 
-## 安装
+# 安装
 请先安装QQNTim,教程见：
 https://github.com/FlysoftBeta/QQNTim#安装插件
 
@@ -27,8 +27,18 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 
 
 
+# 功能
 
-## Web能力支持
+插件只是实现了一些对群/私聊消息`messages`的处理
+
+通过简码形式, 简化 `原生Message` 结构变为单行的 `msg` 进行消息推送
+
+同时发送消息的API Json数据也支持 `msg` 和 `原生消息结构` 共用, 具体请查看用例和文档
+
+
+
+
+## Web能力
 
 - WebApi
 - HttpPostMessage
@@ -68,7 +78,7 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 <details>
 <summary>NT简码</summary>
 
-#### 暂命名为 NT码
+#### 便于理解, 暂定为 NT码
 
 | 功能                     | NT码                    | 解释 |
 | ------------------------ | ---------------------- | ----------------------|
@@ -88,12 +98,6 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 
 
 
-## 消息支持
-插件只是实现了一些对群/私聊消息`messages`的处理
-
-通过简码形式, 简化 `原生Message` 结构变为单行的 `msg` 进行消息推送
-
-同时发送消息的API Json数据也支持 `msg` 和 `原生消息结构` 共用, 具体请查看用例和文档
 
 ### 目前的不足之处 
 1.sender里没有uin, 只有uid, 目前转换困难
