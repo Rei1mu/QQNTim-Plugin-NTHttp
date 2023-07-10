@@ -60,6 +60,7 @@ WebApi
 
 <details>
 <summary>NT简码</summary>
+
 #### 暂命名为 NT码
 
 | 功能                     | NT码                    | 解释 |
