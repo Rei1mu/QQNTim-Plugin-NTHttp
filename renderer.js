@@ -103,7 +103,7 @@ module.exports = async (qqntim) => {
                 });
             });
         } catch (e) {
-            console.log("createWsServer() error"); console.log(e);
+            //  console.log("createWsServer() error"); console.log(e);
         }
     }
 
@@ -163,7 +163,6 @@ module.exports = async (qqntim) => {
             this.timeoutObj = setTimeout(function () {
                 // 发送心跳消息
                 ws.send('ping');
-                // console.log('ping');
                 // 如果超过一定时间没有收到回复，就关闭连接，触发重连
                 // self.timeoutObj = setTimeout(function () {
                 //     ws.close();
@@ -194,7 +193,6 @@ module.exports = async (qqntim) => {
 
     }
     function sendWsServerMsg(message) {
-        // console.log(wssClients.length)
         if (wssClients.length < 1) return;
         wssClients.forEach(function each(client) {
             // 如果客户端处于打开状态，就发送消息
@@ -210,7 +208,7 @@ module.exports = async (qqntim) => {
             qqntim.nt
                 .getPreviousMessages({ chatType: "friend", uid: friend.uid }, 20)
                 .then((messages) => {
-                    //   ws.send(JSON.stringify(messages));
+                    ws.send(JSON.stringify(messages));
                     console.log(
                         "[Example-AutoReply] 好友 " +
                         friend.nickName +
@@ -250,7 +248,7 @@ module.exports = async (qqntim) => {
         messages.forEach((message) => {
             ws.send(JSON.stringify(messages));
             let data = message2Msg(message, "newMsg")
-            console.log('msgLog: ', data)
+            //  console.log('msgLog: ', data)
             sendMsg(data)
         }
         );
@@ -269,13 +267,11 @@ module.exports = async (qqntim) => {
 
     function useHttpApi() {
         app.use(bodyParser({
-            multipart: true,
             formLimit: "20mb",
             jsonLimit: "20mb"
         }));
         router.get('/', async (ctx, next) => {
             // ctx.body = qqntim.nt.getFriendsList1()
-
             let list = botID.uin;
             ctx.body = list
 
@@ -353,12 +349,12 @@ module.exports = async (qqntim) => {
         router.all('/smsg', async (ctx, next) => {
             /*HTTP POST发送例子 文本 + bigface ：
             "t": 分为 "group", "friend"
-            "uid": 为"group" 时是groupUin, "friend" 时是friendUin
+            "uid": 为groupid/friendUin
             msg 和 data 共同组成 elements
             {
                 "t": "group",
                 "uid": "625224327",
-                "msg":"114514",
+                "msg":"[face,id=277,faceType=normal-extended][face,id=63,faceType=normal]asdff\r\n阿斯蒂芬\r\n士大夫\r\n",
                 "data": [
                     {
                         "type": "text",
@@ -453,8 +449,7 @@ module.exports = async (qqntim) => {
 
 function message2Msg(message, op) {
     let j = JSON, msg = ''
-    if (op)
-        j.op = op
+    if (op) j.op = op;
     switch (message.peer.chatType) {
         case 'friend': j.eventType = 'private_msg'; break;
         case 'group': j.eventType = 'group_msg'; break;

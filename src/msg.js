@@ -7,6 +7,7 @@ async function convertMsg(m, elements) {
     let L1
     while (true) {
         L1 = m.indexOf(`[pic=`)
+
         if (L1 !== -1) {
             let m1 = m.substring(0, L1);
             if (m1 !== '') {
@@ -26,8 +27,11 @@ async function convertMsg(m, elements) {
                     elements.push({ type: "image", file: m2 })
                 }
                 m = m.substring(L2 + 1, m.length);
+            } else {
+                break;
             }
         } else {
+            //[bigFace,id=234779,name=[擦汗],hash=feeabe66a1802901854d7574e3bcedae,key=1f895b61413fd55e]
             L1 = m.indexOf(`[bigFace,`)
             if (L1 !== -1) {
                 let m1 = m.substring(0, L1);
@@ -35,6 +39,7 @@ async function convertMsg(m, elements) {
                     await convertMsg(m1, elements)
                 }
                 let L3 = m.indexOf(`,flag=`, L1), emojiPackageId, faceName, emojiId, key;
+                if (L3 == -1) L3 = m.indexOf(`,key=`, L1)
                 if (L3 !== -1) {
                     let L2 = m.indexOf(`]`, L3 + 1);
                     let m2 = m.substring(L1, L2 + 1);
@@ -42,7 +47,7 @@ async function convertMsg(m, elements) {
                     faceName = getArgs(',name=', m2) || getArgs(',faceName=', m2)
                     emojiId = getArgs(',hash=', m2) || getArgs(',emojiId=', m2)
                     key = getArgs(',key=', m2) || getArgs(',flag=', m2)
-                   // console.log(key, emojiId, faceName, emojiPackageId)
+                    // console.log("bigface", key, emojiId, faceName, emojiPackageId)
                     let j = {
                         "type": "raw",
                         "raw": {
@@ -62,6 +67,8 @@ async function convertMsg(m, elements) {
                     }
                     elements.push(j)
                     m = m.substring(L2 + 1, m.length);
+                } else {
+                    break;
                 }
             } else {
                 L1 = m.indexOf(`[audio=`)
@@ -86,6 +93,8 @@ async function convertMsg(m, elements) {
                         //"C:\\soft\\qpic\\123456\\nt_qq\\nt_data\\Ptt\\2023-07\\Ori\\9fcab3ea090a3ee6ff8e3a04b44f74d6.amr"
                         elements.push(j)
                         m = m.substring(L2 + 1, m.length);
+                    } else {
+                        break;
                     }
                 } else {
                     //[face,id=277,faceType=normal-extended][face,id=63,faceType=normal]
@@ -107,6 +116,8 @@ async function convertMsg(m, elements) {
                             }
                             elements.push(j)
                             m = m.substring(L2 + 1, m.length);
+                        } else {
+                            break;
                         }
                     } else {
                         //[reply,msgSeq=${replyElement_.replayMsgSeq},uin=${replyElement_.senderUid},uid=${replyElement_.senderUidStr},msgTime=${replyElement_.replyMsgTime}]
@@ -151,6 +162,8 @@ async function convertMsg(m, elements) {
                                 }
                                 elements.push(j)
                                 m = m.substring(L2 + 1, m.length);
+                            } else {
+                                break;
                             }
                         } else {
                             //[@u_noGwjHveY-OvOXyWsqYAXw]
@@ -175,6 +188,8 @@ async function convertMsg(m, elements) {
                                     }
                                     elements.push(j)
                                     m = m.substring(L2 + 1, m.length);
+                                } else {
+                                    break;
                                 }
                             } else {
                                 if (m == '')
@@ -209,7 +224,7 @@ function saveFileWithHash(data) {
         if (err) {
             fs.writeFile(p, data, (err) => {
                 if (err) throw err;
-               // console.log('文件创建成功');
+                // console.log('文件创建成功');
 
             });
         } else {
