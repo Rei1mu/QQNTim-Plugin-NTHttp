@@ -32,7 +32,7 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 
 通过简码形式, 简化 `原生Message` 结构变为单行的 `msg` 进行消息推送
 
-同时发送消息的请求接口也支持 `msg` 和 `原生消息结构` 共用, 具体请查看用例和文档
+同时发送消息的API Json数据也支持 `msg` 和 `原生消息结构` 共用, 具体请查看用例和文档
 
 ### 目前的不足之处 
 1.sender里没有uin, 只有uid, 目前转换困难
@@ -56,7 +56,10 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 | [获取图片]                 | /gpic                  | gpic |
 | [撤回消息]                 | /revokeMessageById     | revokeMessageById |
 
-
+[发送消息]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
+[上传图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
+[获取图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
+[撤回消息]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
 </details>
 
 <details>
@@ -69,10 +72,14 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 | @某人                     | [@uid]                            | 当前仅能根据uid @某人, 而非uin|
 | [本地图片]                 |[pic=C:\1.png]                    | 本地任意路径图片 |
 | [网络图片]                 |[pic=http://114.514.19.19/1.png]  | 支持图片url |
-| [本地音频]                |[audio=C:\1.amr]                   | 音频文件 |
-| [回复]                    | [reply,msgSeq=114514]             | revokeMessageById |
+| [本地音频]                |[audio=C:\1.amr]                   | 本地音频文件 |
+| [回复]                    | [reply,msgSeq=114514]             | 回复括号里面的每个参数都挺重要的,不方便拿开 |
 
 [本地图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
+[网络图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
+[本地音频]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
+[回复]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
+
 </details>
 
 ## Web支持
