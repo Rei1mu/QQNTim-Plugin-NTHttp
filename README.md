@@ -78,12 +78,13 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 
 | 功能                     | NT码                    | 解释 |
 | ------------------------ | ---------------------- | ----------------------|
-| @某人                     | [@uid]                            | 当前仅能根据uid @某人, 而非uin|
+| [@某人]                     | [@uid]                            | 当前仅能根据uid @某人, 而非uin|
 | [本地图片]                 |[pic=C:\1.png]                    | 本地任意路径图片 |
 | [网络图片]                 |[pic=http://114.514.19.19/1.png]  | 支持图片url |
 | [本地音频]                |[audio=C:\1.amr]                   | 本地音频文件 |
 | [回复]                    | [reply,msgSeq=114514]             | 回复括号里面的每个参数都挺重要的,不方便拿开 |
 
+[@某人]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
 [本地图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
 [网络图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
 [本地音频]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
