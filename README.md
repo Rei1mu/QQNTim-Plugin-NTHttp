@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/github/license/Rei1mu/QQNTim-Plugin-NTHttp.svg)](https://raw.githubusercontent.com/Rei1mu/QQNTim-Plugin-NTHttp/master/LICENSE)
 
 
-# 安装
+## 安装
 请先安装QQNTim,教程见：
 https://github.com/FlysoftBeta/QQNTim#安装插件
 
@@ -27,7 +27,7 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 
 
 
-# 功能
+## 使用
 
 插件只是实现了一些对群/私聊消息`messages`的处理
 
@@ -38,16 +38,16 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 
 
 
-## Web能力
+### Web能力
 
 - WebApi
 - HttpPostMessage
-- WebSocketClient
+- WebSocket
 - WebSocketServer
 
 
 
-## 功能支持
+### 支持
 <details>
 <summary>WebApi</summary>
 
