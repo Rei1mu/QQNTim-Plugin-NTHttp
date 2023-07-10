@@ -24,7 +24,8 @@ async function convertMsg(m, elements) {
                     }
                 }
                 if (m2 !== "" && m2 !== "m2error") {
-                    elements.push({ type: "image", file: m2 })
+                    if (fs.existsSync(m2))
+                        elements.push({ type: "image", file: m2 })
                 }
                 m = m.substring(L2 + 1, m.length);
             } else {
@@ -81,17 +82,21 @@ async function convertMsg(m, elements) {
                     let L2 = m.indexOf(`]`, L1);
                     if (L2 !== -1) {
                         let m2 = m.substring(L1 + 7, L2);
-                        let j = {
-                            "type": "raw",
-                            "raw": {
-                                "elementType": 4,
-                                "pttElement": {
-                                    "filePath": m2
+                        if (fs.existsSync(m2)) {
+                            let j = {
+                                "type": "raw",
+                                "raw": {
+                                    "elementType": 4,
+                                    "pttElement": {
+                                        "filePath": m2
+                                    }
                                 }
                             }
+                            //"C:\\soft\\qpic\\123456\\nt_qq\\nt_data\\Ptt\\2023-07\\Ori\\9fcab3ea090a3ee6ff8e3a04b44f74d6.amr"
+                            elements.push(j)
                         }
-                        //"C:\\soft\\qpic\\123456\\nt_qq\\nt_data\\Ptt\\2023-07\\Ori\\9fcab3ea090a3ee6ff8e3a04b44f74d6.amr"
-                        elements.push(j)
+
+
                         m = m.substring(L2 + 1, m.length);
                     } else {
                         break;
