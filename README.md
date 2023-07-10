@@ -39,7 +39,7 @@ P.S: Windows用户文件夹一般位于 `C:\Users\你的用户名\.qqntim`
 
 同时发送消息的API Json数据也支持 `msg` 和 `原生消息结构` 共用, 具体请查看用例和文档
 
-### 注意事项
+### 注意事项：
 请根据`setting.json` 配置连接
 
 若多账号同时登录请在 `.\setting.json` 中指定 `acc` 账号字段，并增加对应 `acc` 的Web配置
@@ -56,7 +56,7 @@ P.S: Windows用户文件夹一般位于 `C:\Users\你的用户名\.qqntim`
 
 
 
-### 支持
+### 支持：
 <details>
 <summary>WebApi</summary>
 
@@ -113,7 +113,7 @@ P.S: Windows用户文件夹一般位于 `C:\Users\你的用户名\.qqntim`
 
 
 
-### 目前的不足之处 
+### 目前的不足之处：
 1.接收的sender里没有uin, 只有uid, 目前转换困难
 
 2.视频/图片/语音 只能靠本地api转存
