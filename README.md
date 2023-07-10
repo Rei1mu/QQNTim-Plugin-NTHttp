@@ -96,7 +96,7 @@ P.S: Windows用户文件夹一般位于 `C:\Users\你的用户名\.qqntim`
 | [网络图片]                 |[pic=http://114.514.19.19/1.png]  | 支持图片url |
 | [本地音频]                |[audio=C:\1.amr]     id              | 本地音频文件 |
 | [表情]                 |[face,Id=index,faceType=type]  | 普通表情 |
-| [大表情]                |[bigFace,id=id,name=faceName,hash=emojiId,flag=key]                   | stickers |
+| [大表情]                |[bigFace,id={},name={},hash={},flag={}]                   | stickers |
 | [回复]                    | [reply,msgSeq=114514]             | 回复括号里面的每个参数都挺重要的,不方便拿开 |
 
 
