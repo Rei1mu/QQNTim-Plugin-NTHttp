@@ -27,6 +27,15 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 
 
 
+
+## Web能力支持
+
+- WebApi
+- HttpPostMessage
+- WebSocketClient
+- WebSocketServer
+
+
 ## 消息支持
 插件只是实现了一些对群/私聊消息`messages`的处理
 
@@ -91,12 +100,5 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 [回复]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
 
 </details>
-
-## Web支持
-
-- WebApi
-- HttpPostMessage
-- WebSocketClient
-- WebSocketServer
 
 
