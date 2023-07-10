@@ -13,6 +13,7 @@ https://github.com/FlysoftBeta/QQNTim#安装插件
 
 ### Windows下教程：
 (Linux请参照原文档)
+
 下载本插件解压至 `用户文件夹\.qqntim\plugins\NTHttp`  
 plugins中可创建子目录 `NThttp` (不限制命名)
 
