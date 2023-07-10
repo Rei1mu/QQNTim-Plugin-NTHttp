@@ -73,14 +73,14 @@ P.S: Windows用户文件夹一般位于 `C:\Users\你的用户名\.qqntim`
 | [取好友列表]                 | /friendList     | friendList |
 | [取群列表]                 | /groupList     | groupList |
 
-[取自身信息]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
-[发送消息]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
-[上传图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
-[获取图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
-[获取音频]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
-[撤回消息]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
-[取好友列表]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
-[取群列表]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
+[取自身信息]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
+[发送消息]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
+[上传图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
+[获取图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
+[获取音频]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
+[撤回消息]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
+[取好友列表]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
+[取群列表]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
 
 </details>
 
@@ -100,13 +100,13 @@ P.S: Windows用户文件夹一般位于 `C:\Users\你的用户名\.qqntim`
 | [回复]                    | [reply,msgSeq=114514]             | 回复括号里面的每个参数都挺重要的,不方便拿开 |
 
 
-[@某人]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
-[本地图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
-[网络图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
-[本地音频]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
-[表情]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
-[大表情]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
-[回复]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
+[@某人]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
+[本地图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
+[网络图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
+[本地音频]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
+[表情]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
+[大表情]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
+[回复]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/help/Api.md
 
 </details>
 
