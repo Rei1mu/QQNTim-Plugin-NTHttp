@@ -59,6 +59,7 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 | [撤回消息]                 | /revokeMessageById     | revokeMessageById |
 | [取好友列表]                 | /friendList     | friendList |
 | [取群列表]                 | /groupList     | groupList |
+
 [取自身信息]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
 [发送消息]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
 [上传图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
@@ -67,6 +68,7 @@ P.S: 用户文件夹位于 `C:\Users\你的用户名\.qqntim`
 [撤回消息]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
 [取好友列表]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
 [取群列表]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
+
 </details>
 
 <details>
