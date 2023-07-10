@@ -8,10 +8,12 @@
 请先安装QQNTim,教程见：
 https://github.com/FlysoftBeta/QQNTim#安装插件
 
-在Releases下载,执行脚本安装QQNTim
+通过Releases下载,执行脚本安装QQNTim
+
+
 ### Windows简易教程(Linux可参照原教程文档)：
 下载本插件解压至 `用户文件夹\.qqntim\plugins\NTHttp`  
-(plugins中可创建子目录 `NThttp` 不限定名称)
+plugins中可创建子目录 `NThttp` (不限制命名)
 
 然后在该目录下执行:
 ```bash
@@ -21,7 +23,7 @@ https://github.com/FlysoftBeta/QQNTim#安装插件
 P.S: Windows用户文件夹一般位于 `C:\Users\你的用户名\.qqntim`
 Linux用户去参考原文档
 
-重载本插件：按F5刷新即可
+重载插件：按F5刷新即可
 
 
 
