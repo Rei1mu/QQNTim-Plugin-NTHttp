@@ -69,7 +69,7 @@ WebApi
 | [网络图片]                 |[pic=http://114.514.19.19/1.png]  | 支持图片url |
 | [本地音频]                |[audio=C:\1.amr]                   | 音频文件 |
 | [回复]                    | [reply,msgSeq=114514]             | revokeMessageById |
-[本地图片]: 
+[本地图片]: https://github.com/Rei1mu/QQNTim-Plugin-NTHttp/blob/main/docs/Api.md
 </details>
 
 ## Web支持
