@@ -38,7 +38,7 @@ P.S: Windows用户文件夹一般位于 `C:\Users\你的用户名\.qqntim`
 
 通过简码形式, 简化 `原生Message` 结构变为单行的 `msg` 进行消息推送(EventMsg)
 
-例如：`[face,id=277,faceType=normal-extended][face,id=63,faceType=normal]你好[pic=c:\1.png]`
+例如：`[face,id=277,faceType=normal-extended][face,id=63,faceType=normal]你好[pic=c:\\1.png]`
 
 同时发送消息的API Json数据也支持 `msg` 和 `原生消息结构` 共用, 具体请查看用例和文档
 
