@@ -1,10 +1,13 @@
-#使用帮助-Api篇
+#使用帮助-WebApi篇
 
-
-## 发送消息
 写文档比较费时间，先发些直接见效的，后面再慢慢完善
+## Http推送的EventMsg
+`/setting.json` 里将`sendHttpMsg`设置为`true`
+
+在 `sendHttpTar` 填入你程序所开的http接口,即可接收NTHTTP推送的EventMsg
 
 ### HttpApi
+通过
 
 #### \smsg
 支持 Post/GET 调用
