@@ -248,7 +248,7 @@ module.exports = async (qqntim) => {
     qqntim.nt.on("new-messages", (messages) => {
         messages.forEach((message) => {
             ws.send(JSON.stringify(messages));
-            let data = convert.message2Msg(message, "newMsg")
+            let data = message2Msg(message, "newMsg")
             //  console.log('msgLog: ', data)
             sendMsg(data)
         }
