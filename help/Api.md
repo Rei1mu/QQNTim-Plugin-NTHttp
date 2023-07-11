@@ -9,7 +9,13 @@
 #### \smsg
 支持 Post/GET 调用
 例：
-##### POST JSON
+##### POST/ws 都可直接发送此JSON
+`t`: 分为 `group`, `friend`
+`uid`: 为`groupid`/`friendUin`
+`msg` 和 `data` 共同组成 `elements`
+调用请自行修改 `uid` 参数
+
+如果音/图片/视频 文件不存在 则可能导致发送失败
 ```
 {
     "op": "smsg",
@@ -84,5 +90,19 @@
             "faceType": "normal"
         }
     ]
+}
+```
+
+发送图片例子
+```
+{
+ "t":"group",
+ "uid": 625224327,
+ "data": [
+ {
+ "type": "image",
+ "file": "C:\\s\\114514.gif"
+ }
+ ]
 }
 ```
