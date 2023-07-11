@@ -88,7 +88,7 @@ module.exports = async (qqntim) => {
         try {
             var wss = new WebSocketServer({ port: qjj.wsServerPort });
             wss.on('connection', function connection(wsse) {
-                wsse.send('bind:qqntim||' + qjj.httpUrl + '||' + botID.uin + '||' + botID.uid);
+                wsse.send(`bind:qqntim||${qjj.httpUrl}||${botID.uin}||${botID.uid}`);
                 wssClients.add(wsse);
                 wsse.on('message', function incoming(data) {
                     //  console.log('received: %s', data);
@@ -123,7 +123,7 @@ module.exports = async (qqntim) => {
 
     function initEventHandle() {
         ws.on('open', function open() {
-            ws.send('bind:qqntim||' + qjj.httpUrl + '||' + botID.uin + '||' + botID.uid);
+            ws.send(`bind:qqntim||${qjj.httpUrl}||${botID.uin}||${botID.uid}`);
             heartCheck.start();
         });
 
@@ -247,7 +247,7 @@ module.exports = async (qqntim) => {
 
     qqntim.nt.on("new-messages", (messages) => {
         messages.forEach((message) => {
-            ws.send(JSON.stringify(messages));
+            //ws.send(JSON.stringify(messages));
             let data = message2Msg(message, "newMsg")
             //  console.log('msgLog: ', data)
             sendMsg(data)
