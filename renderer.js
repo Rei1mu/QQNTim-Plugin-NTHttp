@@ -33,10 +33,11 @@ function getSettingJ(account) {
 
 }
 // 创建\pic目录 for Api upload & save pic
-fs.mkdir(__dirname + '\\pic', (err) => {
-    if (err) throw err;
-    console.log('目录创建成功');
-});
+
+try {
+    fs.mkdir(__dirname + '\\pic');
+} catch (error) {
+}
 var botID, qjj;
 module.exports = async (qqntim) => {
     async function getAcc() {
@@ -208,16 +209,16 @@ module.exports = async (qqntim) => {
             qqntim.nt
                 .getPreviousMessages({ chatType: "friend", uid: friend.uid }, 20)
                 .then((messages) => {
-                    ws.send(JSON.stringify(messages));
-                    console.log(
-                        "[Example-AutoReply] 好友 " +
-                        friend.nickName +
-                        " 的最近 20 条消息",
-                        messages
-                    )
+                    // ws.send(JSON.stringify(messages));
+                    // console.log(
+                    //     "[Example-AutoReply] 好友 " +
+                    //     friend.nickName +
+                    //     " 的最近 20 条消息",
+                    //     messages
+                    // )
                     if (qjj.sendHistoryMsg) {
-                        let data = message2Msg(message, 'LoadListFriends');
-                        console.log('msgLog: ', data);
+                        let data = messages2Msg(messages, 'LoadListFriends');
+                        // console.log('msgLog: ', data);
                         sendMsg(data)
                     }
                 }
@@ -232,11 +233,9 @@ module.exports = async (qqntim) => {
                 .getPreviousMessages({ chatType: "group", uid: group.uid }, 20)
                 .then((messages) => {
                     //  ws.send(JSON.stringify(messages));
-                    console.log("[Example-AutoReply] 群组 " + group.name + " 的最近 20 条消息", messages)
-
+                    // console.log("[Example-AutoReply] 群组 " + group.name + " 的最近 20 条消息", messages)
                     if (qjj.sendHistoryMsg) {
-                        let data = message2Msg(message, 'LoadListGroups');
-                        console.log('msgLog: ', data);
+                        let data = messages2Msg(messages, 'LoadListGroups');
                         sendMsg(data)
                     }
 
@@ -247,7 +246,7 @@ module.exports = async (qqntim) => {
     qqntim.nt.on("new-messages", (messages) => {
         messages.forEach((message) => {
             ws.send(JSON.stringify(messages));
-            let data = message2Msg(message, "newMsg")
+            let data = convert.message2Msg(message, "newMsg")
             //  console.log('msgLog: ', data)
             sendMsg(data)
         }
@@ -442,13 +441,31 @@ module.exports = async (qqntim) => {
 
 
 
+var qjj = {
+    "acc": 123456,
+    "ws": true,
+    "rwsUrl": "ws://127.0.0.1:4545",
+    "http": true,
+    "httpApiPort": 4544,
+    "httpUrl": "127.0.0.1:4544",
+    "wss": true,
+    "wsServerPort": 4543,
+    "sendHttpMsg": true,
+    "sendHttpTar": "http://114.514.19.19:810/recv",
+    "sendHistoryMsg": true
+}
 
 
-
-
-
+function messages2Msg(message, op) {
+    var je = []
+    for (let i = 0; i < message.length; i++) {
+        var jj = message2Msg(message[i], op)
+        je.push(jj)
+    }
+    return JSON.stringify(je)
+}
 function message2Msg(message, op) {
-    let j = JSON, msg = ''
+    var j = JSON, msg = ''
     if (op) j.op = op;
     switch (message.peer.chatType) {
         case 'friend': j.eventType = 'private_msg'; break;
@@ -530,5 +547,5 @@ function message2Msg(message, op) {
     j.msg = msg
     return JSON.stringify(j);
 }
-
-
+module.exports.message2Msg = message2Msg;
+module.exports.messages2Msg = messages2Msg;
