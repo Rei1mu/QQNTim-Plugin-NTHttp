@@ -88,13 +88,15 @@ module.exports = async (qqntim) => {
         try {
             var wss = new WebSocketServer({ port: qjj.wsServerPort });
             wss.on('connection', function connection(wsse) {
+                wsse.send('bind:qqntim||' + qjj.httpUrl + '||' + botID.uin + '||' + botID.uid);
                 wssClients.add(wsse);
                 wsse.on('message', function incoming(data) {
                     //  console.log('received: %s', data);
+
                     var msg = data.toString();
                     //  console.log(msg);
-                    if (msg == 'pong') {
-                        heartCheck.reset().start(); return;
+                    if (msg == 'ping') {
+                        wsse.send('pong'); return;
                     }
                     var j = JSON.stringify(msg)
                     recvWsMsgEvent(j, wsse);
@@ -121,7 +123,7 @@ module.exports = async (qqntim) => {
 
     function initEventHandle() {
         ws.on('open', function open() {
-            ws.send('bind:qqntim||' + botID.uin + '||' + qjj.rwsUrl);
+            ws.send('bind:qqntim||' + qjj.httpUrl + '||' + botID.uin + '||' + botID.uid);
             heartCheck.start();
         });
 
