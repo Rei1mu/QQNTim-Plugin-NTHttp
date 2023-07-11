@@ -1,6 +1,6 @@
 {
   "name": "qqntim-plugin-nthttp",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "dependencies": {
     "koa": "^2.14.2",
     "koa-bodyparser": "^4.4.1",
