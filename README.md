@@ -117,7 +117,7 @@ P.S: Windows用户文件夹一般位于 `C:\Users\你的用户名\.qqntim`
 
 
 ### 目前的不足：
-1.接收的sender里没有uin, 只有uid(非number), 目前转换困难，群聊没法对应是谁发的消息
+1.接收的sender里没有uin, 只有uid(非number), 目前转换困难，群聊没法直接对应是谁发的消息
 
 2.视频/图片/语音 只能靠本地api转存
 
