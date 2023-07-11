@@ -1,4 +1,4 @@
-#ws通信
+# ws通信
 
 ## Ws推送的EventMsg
 `/setting.json` 里将`ws`设置为`true`
