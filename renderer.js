@@ -12,6 +12,7 @@ const WebSocket = require('ws');
 const fs = require('fs');
 const WebSocketServer = WebSocket.Server;
 const wssClients = new Set();
+const qj_uMap = new Map();
 
 const convert = require('./src/msg.js');
 
@@ -210,7 +211,7 @@ module.exports = async (qqntim) => {
         list.forEach((friend) =>
             qqntim.nt
                 .getPreviousMessages({ chatType: "friend", uid: friend.uid }, 20)
-                .then((messages) => {
+                .then(async (messages) => {
                     // ws.send(JSON.stringify(messages));
                     // console.log(
                     //     "[Example-AutoReply] 好友 " +
@@ -219,7 +220,7 @@ module.exports = async (qqntim) => {
                     //     messages
                     // )
                     if (qjj.sendHistoryMsg) {
-                        let data = messages2Msg(messages, 'LoadListFriends');
+                        let data = await messages2Msg(messages, 'LoadListFriends');
                         // console.log('msgLog: ', data);
                         sendMsg(data)
                     }
@@ -229,15 +230,15 @@ module.exports = async (qqntim) => {
     });
 
     qqntim.nt.getGroupsList().then((list) => {
-        console.log("[Example-AutoReply] 群组列表", list);
+        //  console.log("[Example-AutoReply] 群组列表", list);
         list.forEach((group) =>
             qqntim.nt
                 .getPreviousMessages({ chatType: "group", uid: group.uid }, 20)
-                .then((messages) => {
+                .then(async (messages) => {
                     //  ws.send(JSON.stringify(messages));
                     // console.log("[Example-AutoReply] 群组 " + group.name + " 的最近 20 条消息", messages)
                     if (qjj.sendHistoryMsg) {
-                        let data = messages2Msg(messages, 'LoadListGroups');
+                        let data = await messages2Msg(messages, 'LoadListGroups');
                         sendMsg(data)
                     }
 
@@ -246,14 +247,37 @@ module.exports = async (qqntim) => {
     });
 
     qqntim.nt.on("new-messages", (messages) => {
-        messages.forEach((message) => {
+        messages.forEach(async (message) => {
             //ws.send(JSON.stringify(messages));
+            message.sender.uin = await getUserUin(message.sender.uid)
             let data = message2Msg(message, "newMsg")
             //  console.log('msgLog: ', data)
             sendMsg(data)
         }
         );
     });
+
+    async function getUserUin(uid) {
+        let isUid
+        if (uid.startsWith('u_'))
+            isUid = true;
+        let r = qj_uMap.get(uid)
+
+        if (!r || r == "") {
+            if (isUid) {
+                let j = await qqntim.nt.getUserInfo(uid);
+                if (j.uin) {
+                    qj_uMap.set(uid, j.uin);
+                    qj_uMap.set(j.uin, uid);
+                }
+                return j.uin;
+            } else {
+                return "";
+            }
+        } else {
+            return r
+        }
+    }
 
 
     function postMsg(data) {
@@ -288,6 +312,19 @@ module.exports = async (qqntim) => {
         router.get('/groupList', async (ctx, next) => {
             let list = await qqntim.nt.getGroupsList();
             ctx.body = JSON.stringify(list);
+        });
+        router.get('/getUserInfo', async (ctx, next) => {
+            if (ctx.request.query.uid) {
+                let list = await qqntim.nt.getUserInfo(ctx.request.query.uid);
+                ctx.body = JSON.stringify(list);
+            }
+        });
+
+        router.get('/getUin', async (ctx, next) => {
+            if (ctx.request.query.uid) {
+                let list = await getUserUin(ctx.request.query.uid);
+                ctx.body = list;
+            }
         });
         router.get('/gpic', async (ctx, next) => {
             let path = ctx.request.query.path;
@@ -439,33 +476,18 @@ module.exports = async (qqntim) => {
         app.use(router.allowedMethods());
         app.listen(qjj.httpApiPort);
     }
+    async function messages2Msg(message, op) {
+        var je = []
+        for (let i = 0; i < message.length; i++) {
+            message[i].sender.uin = await getUserUin(message[i].sender.uid);
+            var jj = message2Msg(message[i], op)
+            je.push(jj)
+        }
+        return JSON.stringify(je)
+    }
 };
 
 
-
-var qjj = {
-    "acc": 123456,
-    "ws": true,
-    "rwsUrl": "ws://127.0.0.1:4545",
-    "http": true,
-    "httpApiPort": 4544,
-    "httpUrl": "127.0.0.1:4544",
-    "wss": true,
-    "wsServerPort": 4543,
-    "sendHttpMsg": true,
-    "sendHttpTar": "http://114.514.19.19:810/recv",
-    "sendHistoryMsg": true
-}
-
-
-function messages2Msg(message, op) {
-    var je = []
-    for (let i = 0; i < message.length; i++) {
-        var jj = message2Msg(message[i], op)
-        je.push(jj)
-    }
-    return JSON.stringify(je)
-}
 function message2Msg(message, op) {
     var j = JSON, msg = ''
     if (op) j.op = op;
@@ -474,11 +496,9 @@ function message2Msg(message, op) {
         case 'group': j.eventType = 'group_msg'; break;
     }
     //  ws.send(JSON.stringify(j));
-    j.peer = message.peer
-    j.sender = message.sender
-    j.msgId = message.raw.msgId
-    j.msgRandom = message.raw.msgRandom
-    j.msgSeq = message.raw.msgSeq
+
+    j.peer = message.peer; j.sender = message.sender;
+    j.msgId = message.raw.msgId; j.msgRandom = message.raw.msgRandom; j.msgSeq = message.raw.msgSeq;
     for (let i = 0; i < message.elements.length; i++) {
         let i_ = message.elements[i]
         switch (i_.type) {
@@ -550,4 +570,3 @@ function message2Msg(message, op) {
     return JSON.stringify(j);
 }
 module.exports.message2Msg = message2Msg;
-module.exports.messages2Msg = messages2Msg;
