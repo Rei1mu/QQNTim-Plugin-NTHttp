@@ -117,11 +117,9 @@ P.S: Windows用户文件夹一般位于 `C:\Users\你的用户名\.qqntim`
 
 
 ### 目前的不足：
-1.接收的sender里没有uin, 只有uid(非number), 目前转换困难，群聊没法直接对应是谁发的消息
+1.接收的sender里没有uin, 只有uid(非number) 已解决
 
-2.视频/图片/语音 只能靠本地api转存
-
-3.合并转发未支持
+2.合并转发未支持
 
 不过对我的bot来说, 能收发消息就足够了
 
@@ -132,4 +130,4 @@ P.S: Windows用户文件夹一般位于 `C:\Users\你的用户名\.qqntim`
 
 2.完善文档
 
-3.Websdk for 多平台
+3.sdk for 多平台
