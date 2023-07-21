@@ -17,7 +17,7 @@ export const defaults: PluginConfig = {
     sendHttpTar: "http://114.514.19.19:810/recv",
     sendWssMsg: true,
     acc: "123456",
-    sendHistoryMsg: true
+    sendHistoryMsg: true,
 };
 export function getPluginConfig(config: Config | undefined) {
     return Object.assign({}, defaults, config?.[id] || {});

@@ -29,7 +29,7 @@ async function _i(tmp: any, _msg: _msg, elements: any) {
                 m2 = await getPicByUrl(m2);
             } else if (m2.indexOf("/") == -1) {
                 //适配[pic=F53E57F1BC8190193187B69FD9D1B272]
-                let md5 = m2.toUpperCase()
+                const md5 = m2.toUpperCase();
                 m2 = await getPicByUrl(`http://gchat.qpic.cn/gchatpic_new//--${md5}/720/${md5}]`);
             }
             if (m2 !== "" && m2 !== "m2error") {
@@ -78,7 +78,7 @@ async function _i(tmp: any, _msg: _msg, elements: any) {
                         pttElement: {
                             filePath: m2,
                         },
-                    }
+                    },
                 };
                 //"C:\\soft\\qpic\\123456\\nt_qq\\nt_data\\Ptt\\2023-07\\Ori\\9fcab3ea090a3ee6ff8e3a04b44f74d6.amr"
                 elements.push(j);
@@ -112,27 +112,27 @@ async function _i(tmp: any, _msg: _msg, elements: any) {
             //console.log(m2, replayMsgSeq, senderUid, replyMsgTime)
             j = senderUid
                 ? {
-                    type: "raw",
-                    raw: {
-                        elementType: 7,
-                        replyElement: {
-                            replayMsgSeq: replayMsgSeq,
-                            senderUid: senderUid,
-                            replyMsgTime: replyMsgTime,
-                        },
-                    }
-                }
+                      type: "raw",
+                      raw: {
+                          elementType: 7,
+                          replyElement: {
+                              replayMsgSeq: replayMsgSeq,
+                              senderUid: senderUid,
+                              replyMsgTime: replyMsgTime,
+                          },
+                      },
+                  }
                 : {
-                    type: "raw",
-                    raw: {
-                        elementType: 7,
-                        replyElement: {
-                            replayMsgSeq: replayMsgSeq,
-                            senderUidStr: getArgs(",uid=", m2) || getArgs(",senderUidStr=", m2),
-                            replyMsgTime: replyMsgTime,
-                        },
-                    }
-                };
+                      type: "raw",
+                      raw: {
+                          elementType: 7,
+                          replyElement: {
+                              replayMsgSeq: replayMsgSeq,
+                              senderUidStr: getArgs(",uid=", m2) || getArgs(",senderUidStr=", m2),
+                              replyMsgTime: replyMsgTime,
+                          },
+                      },
+                  };
             elements.push(j);
             break;
         }
@@ -148,7 +148,7 @@ async function _i(tmp: any, _msg: _msg, elements: any) {
                         atType: 2,
                         atNtUid: m2,
                     },
-                }
+                },
             };
             elements.push(j);
             break;
@@ -163,7 +163,7 @@ async function _i(tmp: any, _msg: _msg, elements: any) {
                     arkElement: {
                         bytesData: m2,
                     },
-                }
+                },
             };
             elements.push(j);
             break;
@@ -180,7 +180,7 @@ async function _i(tmp: any, _msg: _msg, elements: any) {
                         // "resId": "ldsviXEpNPHBsuE1JoSylD99jSGQ31cy3lgbLrX539zxNgETP8GD+u6uuNeUX2PS",
                         // "fileName": "C7EEDCC3-C627-4DDD-8EF5-3300AB27BD56"
                     },
-                }
+                },
             };
             elements.push(j);
             break;
@@ -200,17 +200,10 @@ async function _i(tmp: any, _msg: _msg, elements: any) {
 export async function convertMsg(_msg: _msg, elements: any) {
     while (true) {
         //全true则 -1，否则 1-6继续循环
-        const i_ = await _i("[json=", _msg, elements) ?
-            await _i("[xml=", _msg, elements) ?
-                await _i("[face,", _msg, elements) ?
-                    await _i("[bigFace,", _msg, elements) ?
-                        await _i("[pic=", _msg, elements) ?
-                            await _i("[audio=", _msg, elements) ?
-                                -1 : 1 : 2 : 3 : 4 : 5 : 6;
+        const i_ = (await _i("[json=", _msg, elements)) ? ((await _i("[xml=", _msg, elements)) ? ((await _i("[face,", _msg, elements)) ? ((await _i("[bigFace,", _msg, elements)) ? ((await _i("[pic=", _msg, elements)) ? ((await _i("[audio=", _msg, elements)) ? -1 : 1) : 2) : 3) : 4) : 5) : 6;
 
         console.log("TMP3:", i_, _msg, elements);
         if (i_ > -1) {
-
         } else {
             if (_msg.m == "") {
                 break;

@@ -19,10 +19,10 @@ async function buildPlugin() {
         treeShaking: isProduction,
         format: "cjs",
         entryPoints: [`src${s}main.ts`, `src${s}renderer.ts`, `src${s}settings.tsx`],
-        outdir: "../NTHttp",
+        outdir: "dist",
         external: ["electron", "react", "react/jsx-runtime", "react-dom", "react-dom/client", "qqntim/main", "qqntim/renderer", "qqntim-settings", "qqntim-settings/components"],
     });
-    await fs.copy("publish", "../NTHttp");
+    await fs.copy("publish", "dist");
 }
 
 buildPlugin();

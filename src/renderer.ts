@@ -21,14 +21,11 @@ fs.mkdir(`${__dirname}\\pic`, { recursive: true }, (err) => {
 });
 
 let lock: boolean;
-let botID: any = qqntim.nt.getAccountInfo()
+const botID: any = qqntim.nt.getAccountInfo();
 let ws: WebSocket;
 const config = getPluginConfig(qqntim.env.config.plugins.config);
 
-export default class Entry implements QQNTim.Entry.Renderer {
-    constructor() {
-    }
-}
+export default class Entry implements QQNTim.Entry.Renderer {}
 
 console.log("[Template] Hello world!", qqntim);
 console.log("[Template] 当前插件配置：", config);
@@ -173,7 +170,7 @@ const heartCheck = {
 };
 
 function sendMsg(data) {
-    if (data == "[]") return
+    if (data == "[]") return;
     if (config.ws) {
         try {
             ws.send(data);
@@ -312,7 +309,7 @@ function useHttpApi() {
         }
     });
 
-    router.get("/getUin", async (ctx,) => {
+    router.get("/getUin", async (ctx) => {
         const _uid: any = ctx.request.query.uid;
         if (ctx.request.query.uid) {
             const list = await getUserUin(_uid);
@@ -346,9 +343,9 @@ function useHttpApi() {
             );
             ctx.body = "revokeMessageById req success nya";
         } else if (ctx.request.body) {
-            console.log(ctx.request.body)
-            const d = (ctx.request.body);
-            console.log(d)
+            console.log(ctx.request.body);
+            const d = ctx.request.body;
+            console.log(d);
             await qqntim.nt.revokeMessage(
                 {
                     uid: d.uid,
@@ -356,13 +353,13 @@ function useHttpApi() {
                 },
                 d.id,
             );
-            ctx.body = `revokeMessageById req success nya`;
+            ctx.body = "revokeMessageById req success nya";
         } else {
             ctx.body = "error";
         }
     });
 
-    router.post("/uploadPic", async (ctx: { request: { rawBody: WithImplicitCoercion<string> | { [Symbol.toPrimitive](hint: "string"): string; }; }; body: any; }) => {
+    router.post("/uploadPic", async (ctx: { request: { rawBody: WithImplicitCoercion<string> | { [Symbol.toPrimitive](hint: "string"): string } }; body: any }) => {
         //保存图片到本地，上传必需b64编码，默认保存位置为 ws文件夹\pic\ 下
         //base64解码图片的编码，处理后保存命名hash值并返回保存路径
         const data = Buffer.from(ctx.request.rawBody, "base64");
@@ -387,20 +384,21 @@ function useHttpApi() {
     });
 
     router.all("/smsg", async (ctx) => {
-        let elements: any = []; let je: any = [];
+        const elements: any = [];
+        let je: any = [];
         if (ctx.request.query.uid) {
             if (ctx.request.query.msg) je = await convert.convertMsg(ctx.request.query.msg, elements);
             if (ctx.request.query.data) for (let i = 0; i < ctx.request.query.data.length; i++) je.push(ctx.request.query.data[i]);
 
             const ret = await qqntim.nt.sendMessage({ uid: ctx.request.query.uid, chatType: ctx.request.query.t }, je);
-            ctx.body = `send_message req success! elementId: ${ret}`
+            ctx.body = `send_message req success! elementId: ${ret}`;
         } else if (ctx.request.body) {
-            const d: any = (ctx.request.body);
-            let _msg = { m: d.msg };
+            const d: any = ctx.request.body;
+            const _msg = { m: d.msg };
             if (d.msg) je = await convert.convertMsg(_msg, elements);
             if (d.data) for (let i = 0; i < d.data.length; i++) await je.push(d.data[i]);
-            const ret = await qqntim.nt.sendMessage({ uid: d.uid, chatType: d.t }, je)
-            ctx.body = `send_message req success! elementId: ${ret}`
+            const ret = await qqntim.nt.sendMessage({ uid: d.uid, chatType: d.t }, je);
+            ctx.body = `send_message req success! elementId: ${ret}`;
         } else {
             ctx.body = "error";
         }
@@ -411,7 +409,7 @@ function useHttpApi() {
     app.listen(config.httpApiPort);
 }
 async function messages2Msg(message: any, op: any) {
-    let je: any = [];
+    const je: any = [];
     for (let i = 0; i < message.length; i++) {
         message[i].sender.uin = await getUserUin(message[i].sender.uid);
         await je.push(message2Msg(message[i], op));
@@ -421,7 +419,7 @@ async function messages2Msg(message: any, op: any) {
 export function message2Msg(message: any, op: any) {
     const j: any = {};
 
-    let msg: string = "";
+    let msg = "";
     if (op) j.op = op;
     switch (message.peer.chatType) {
         case "friend":
@@ -457,15 +455,16 @@ export function message2Msg(message: any, op: any) {
                     msg = msg + c.replaceAll("\r", "\r\n");
                     break;
                 }
-            case "image":
+            case "image": {
                 //如果是内测版： msg = `${msg}[pic=${config.httpUrl}/gpic?path=${i_.file}]`;
-                let md5 = i_.raw.picElement.md5HexStr.toUpperCase()
+                const md5 = i_.raw.picElement.md5HexStr.toUpperCase();
                 //md5版
                 msg = `${msg}[pic=${md5}]`;
                 //link版
                 // msg = `${msg}[pic=http://gchat.qpic.cn/gchatpic_new//--${md5}/720/${md5}]`;
                 // http://gchat.qpic.cn/gchatpic_new//--F53E57F1BC8190193187B69FD9D1B272/720
                 break;
+            }
             case "face":
                 msg = `${msg}[face,Id=${i_.faceIndex},faceType=${i_.faceType}]`;
                 break;
