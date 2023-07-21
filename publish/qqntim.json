@@ -1,0 +1,23 @@
+{
+    "manifestVersion": "3.0",
+    "id": "NTHttp",
+    "name": "NTHttp",
+    "version": "1.0.3",
+    "description": "Ws+Http的通信实现,对接你的bot",
+    "author": "Rei1mu",
+    "injections": [
+        {
+            "type": "renderer",
+            "script": "renderer.js",
+            "page": "main"
+        },
+        {
+            "type": "renderer",
+            "stylesheet": "style.css",
+            "page": [
+                "settings"
+            ],
+            "script": "settings.js"
+        }
+    ]
+}

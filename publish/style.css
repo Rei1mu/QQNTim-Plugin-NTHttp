@@ -1,0 +1,9 @@
+/* Put your stylesheet here. */
+
+.qqntim-settings-panel-box-item-description {
+    white-space: pre-wrap !important;
+}
+
+.qqntim-settings-panel-box-item-description span {
+    width: 500px;
+}
