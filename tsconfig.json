@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "target": "ESNext",
+        "resolveJsonModule": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "noEmit": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "**/node_modules/*"]
+}

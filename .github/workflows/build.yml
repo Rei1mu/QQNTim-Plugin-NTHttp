@@ -1,0 +1,64 @@
+name: Build
+
+on:
+    workflow_dispatch:
+    push:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Use Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18.x
+
+            - name: Setup Corepack
+              run: corepack enable
+
+            - name: Cache Yarn dependencies
+              id: yarn-cache
+              uses: actions/cache@v3
+              with:
+                  path: |
+                      .yarn/cache
+                      .yarn/unplugged
+                      .yarn/install-state.gz
+                      .pnp.cjs
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
+
+            - name: Install Yarn dependencies
+              run: yarn
+
+            - name: Build
+              run: yarn build
+
+            - name: Compress files
+              run: |
+                  mkdir upload
+                  pushd dist
+                  zip -r9 ../upload/$(node --eval 'console.log(require("../publish/qqntim.json").id)').zip .
+                  popd
+
+            - name: Upload artifact
+              uses: actions/upload-artifact@v3
+              with:
+                  name: build
+                  path: upload/*
+
+            - name: Create release
+              if: github.ref_type == 'tag'
+              uses: softprops/action-gh-release@v1
+              with:
+                  files: upload/*
+                  generate_release_notes: true
+                  tag_name: ${{ github.ref_name }}
+                  prerelease: ${{ endsWith(github.ref_name, 'alpha') }}
+                  draft: false
+                  name: ${{ github.ref_name }}

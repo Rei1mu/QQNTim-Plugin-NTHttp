@@ -1,6 +1,0 @@
-{
-    "id": "NTHttp",
-    "name": "NTHttp: Ws+Http的通信实现",
-    "author": "Rei1mu",
-    "injections": [{ "type": "renderer", "script": "renderer.js", "page": "main" }]
-}
